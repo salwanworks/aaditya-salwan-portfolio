@@ -177,7 +177,7 @@ export const featuredProjects: Project[] = [
       "~7–8 → ~30 FPS",
     ],
     githubUrl: "", // PASTE GitHub repo URL
-    linkedinPostUrl: "", // PASTE LinkedIn post URL
+    linkedinPostUrl: "https://lnkd.in/p/gTbnWH2v", // PASTE LinkedIn post URL
     visual: "handtracking",
     detail: {
       problem:
@@ -216,7 +216,7 @@ export const featuredProjects: Project[] = [
       "Offer-letter generation",
     ],
     githubUrl: "", // PASTE GitHub repo URL
-    linkedinPostUrl: "", // PASTE LinkedIn post URL
+    linkedinPostUrl: "https://lnkd.in/p/gTbnWH2v", // PASTE LinkedIn post URL
     visual: "hireos",
     detail: {
       problem:
