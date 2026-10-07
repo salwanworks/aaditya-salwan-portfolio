@@ -216,7 +216,7 @@ export const featuredProjects: Project[] = [
       "Offer-letter generation",
     ],
     githubUrl: "", // PASTE GitHub repo URL
-    linkedinPostUrl: "https://lnkd.in/p/gTbnWH2v", // PASTE LinkedIn post URL
+    linkedinPostUrl: "", // PASTE LinkedIn post URL
     visual: "hireos",
     detail: {
       problem:
@@ -268,7 +268,7 @@ export const otherProjects: OtherProject[] = [
       "MySQL database",
     ],
     githubUrl: "",
-    linkedinPostUrl: "",
+    linkedinPostUrl: "https://lnkd.in/p/gx2HZKXG",
     liveUrl: "",
   },
   {
