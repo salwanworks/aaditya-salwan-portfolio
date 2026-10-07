@@ -64,7 +64,7 @@ export const socialLinks = {
 };
 
 /** Used for canonical URL + Open Graph. Set to your deployed domain. */
-export const siteUrl = "https://example.com"; // ← replace with your live URL after deploying
+export const siteUrl = "https://aaditya-salwan-portfolio.vercel.app/"; // ← replace with your live URL after deploying
 
 export const navItems = [
   { id: "about", label: "About" },
