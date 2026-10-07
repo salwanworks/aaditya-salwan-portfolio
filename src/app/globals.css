@@ -1,0 +1,132 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  color-scheme: dark;
+}
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 84px;
+  background: #080b12;
+}
+
+body {
+  @apply bg-ink-950 text-slate-100 font-sans antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+::selection {
+  background: rgba(45, 212, 191, 0.28);
+  color: #fff;
+}
+
+:focus-visible {
+  outline: 2px solid #5eead4;
+  outline-offset: 3px;
+  border-radius: 6px;
+}
+
+@layer components {
+  .page {
+    @apply mx-auto w-full max-w-page px-5 sm:px-8;
+  }
+  .surface {
+    @apply rounded-2xl border border-white/[0.07] bg-ink-850/70;
+  }
+  .eyebrow {
+    @apply font-mono text-[11px] uppercase tracking-[0.22em] text-signal;
+  }
+  .chip {
+    @apply inline-flex items-center rounded-md border border-white/[0.08] bg-white/[0.03] px-2.5 py-1 font-mono text-[11.5px] text-slate-300;
+  }
+  .btn {
+    @apply inline-flex items-center justify-center gap-2 rounded-lg px-4 py-2.5 text-sm font-medium transition-all duration-200 active:scale-[0.98];
+  }
+  .btn-primary {
+    @apply btn bg-signal text-ink-950 hover:bg-signal-bright;
+  }
+  .btn-ghost {
+    @apply btn border border-white/10 bg-white/[0.03] text-slate-200 hover:border-white/25 hover:bg-white/[0.06] hover:text-white;
+  }
+  .link-mini {
+    @apply inline-flex items-center gap-1.5 rounded-md border border-white/10 px-2.5 py-1.5 font-mono text-[11.5px] text-slate-300 transition-colors hover:border-signal/50 hover:text-signal-bright;
+  }
+}
+
+/* Background grid — static, very low contrast */
+.grid-bg {
+  background-image:
+    linear-gradient(to right, rgba(148, 163, 184, 0.055) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(148, 163, 184, 0.055) 1px, transparent 1px);
+  background-size: 56px 56px;
+  mask-image: radial-gradient(ellipse 80% 70% at 50% 30%, #000 40%, transparent 100%);
+}
+
+/* Packets flowing along telemetry paths */
+@keyframes dash {
+  to {
+    stroke-dashoffset: -40;
+  }
+}
+.flow {
+  stroke-dasharray: 4 8;
+  animation: dash 1.6s linear infinite;
+}
+
+/* Telemetry packets travelling between pipeline stages */
+.packet {
+  position: absolute;
+  width: 6px;
+  height: 6px;
+  border-radius: 9999px;
+  background: #2dd4bf;
+  box-shadow: 0 0 10px 2px rgba(45, 212, 191, 0.45);
+  animation-duration: 1.8s;
+  animation-iteration-count: infinite;
+  animation-timing-function: cubic-bezier(0.45, 0, 0.55, 1);
+}
+.packet-h {
+  top: -2.5px;
+  animation-name: travel-h;
+}
+.packet-v {
+  left: -2.5px;
+  animation-name: travel-v;
+}
+@keyframes travel-h {
+  0% { left: 0; opacity: 0; }
+  15%, 85% { opacity: 1; }
+  100% { left: calc(100% - 6px); opacity: 0; }
+}
+@keyframes travel-v {
+  0% { top: 0; opacity: 0; }
+  15%, 85% { opacity: 1; }
+  100% { top: calc(100% - 6px); opacity: 0; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .packet { display: none !important; }
+}
+
+@keyframes blink {
+  50% {
+    opacity: 0.25;
+  }
+}
+.blink {
+  animation: blink 1.4s steps(2) infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+  }
+}
